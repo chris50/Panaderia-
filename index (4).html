@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dulce Trigo · Repostería y panadería al por mayor</title>
+<meta name="description" content="Dulce Trigo: repostería artesanal al por mayor para panaderías, distribuidores y clientes. Queques únicos, pedidos especiales y entrega a domicilio." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ===== Barra superior ===== -->
+<div class="topbar">
+  <div class="container topbar__inner">
+    <span>🚚 Entregas en 24 h en el GAM · Pedido mayorista mínimo ₡40.000</span>
+    <span class="topbar__links">
+      <a href="tel:+50688887777">📞 8888-7777</a>
+      <a href="https://wa.me/50688887777" target="_blank" rel="noopener">WhatsApp</a>
+    </span>
+  </div>
+</div>
+
+<!-- ===== Encabezado ===== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#inicio" class="brand">
+      <span class="brand__mark">DT</span>
+      <span class="brand__text"><strong>Dulce Trigo</strong><small>Repostería artesanal</small></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#mayoreo">Mayoreo</a>
+      <a href="#especiales">Pedidos especiales</a>
+      <a href="#entregas">Entregas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="btn btn--ghost" id="btnCuenta" data-action="abrir-cuenta">Mi cuenta</button>
+      <button class="btn btn--primary" id="btnCarrito" data-action="abrir-carrito">
+        Carrito <span class="pill" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="btnMenu" aria-label="Abrir menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Desde 2014 · San José, Costa Rica</span>
+        <h1>Repostería artesanal <em>al por mayor</em> para tu panadería y tu mesa</h1>
+        <p>Horneamos cada madrugada para panaderías, distribuidores y clientes que buscan lo mejor. Precios por volumen, entregas programadas y queques únicos hechos a tu medida.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#catalogo">Ver catálogo</a>
+          <a class="btn btn--ghost" href="#especiales">Pedir un queque único</a>
+        </div>
+        <ul class="hero__stats">
+          <li><strong>+120</strong><span>panaderías socias</span></li>
+          <li><strong>24 h</strong><span>entregas en el GAM</span></li>
+          <li><strong>+40</strong><span>recetas artesanales</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__card hero__card--1"><span>🎂</span><small>Queques únicos</small></div>
+        <div class="hero__card hero__card--2"><span>🥖</span><small>Panadería</small></div>
+        <div class="hero__card hero__card--3"><span>🧁</span><small>Repostería</small></div>
+        <div class="hero__blob"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Beneficios ===== -->
+  <section class="strip">
+    <div class="container strip__grid">
+      <div class="strip__item"><span>🌅</span><div><strong>Horneado diario</strong><small>Sin conservantes, sin congelados</small></div></div>
+      <div class="strip__item"><span>📦</span><div><strong>Precios por volumen</strong><small>Desde 100 unidades</small></div></div>
+      <div class="strip__item"><span>🚚</span><div><strong>Entrega a domicilio</strong><small>GAM en 24 horas</small></div></div>
+      <div class="strip__item"><span>🎨</span><div><strong>Diseño a la medida</strong><small>Queques y mesas dulces</small></div></div>
+    </div>
+  </section>
+
+  <!-- ===== Catálogo ===== -->
+  <section class="section" id="catalogo">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">Catálogo</span>
+          <h2>Nuestros productos</h2>
+          <p class="muted">Los precios cambian automáticamente según tu perfil: detal, panadería o distribuidor.</p>
+        </div>
+        <div class="search">
+          <input type="search" id="buscar" placeholder="Buscar producto…" aria-label="Buscar producto" />
+        </div>
+      </div>
+
+      <div class="chips" id="filtros">
+        <button class="chip is-active" data-action="filtro" data-cat="todos">Todo el catálogo</button>
+        <button class="chip" data-action="filtro" data-cat="panaderia">Panadería</button>
+        <button class="chip" data-action="filtro" data-cat="reposteria">Repostería</button>
+        <button class="chip" data-action="filtro" data-cat="queques">Queques únicos</button>
+        <button class="chip" data-action="filtro" data-cat="especiales">Pedidos especiales</button>
+      </div>
+
+      <div class="perfil-nota" id="perfilNota"></div>
+      <div class="grid-productos" id="gridProductos"></div>
+    </div>
+  </section>
+
+  <!-- ===== Mayoreo / perfiles ===== -->
+  <section class="section section--alt" id="mayoreo">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <div>
+          <span class="eyebrow">Perfiles de usuario</span>
+          <h2>Un precio para cada tipo de cliente</h2>
+          <p class="muted">Crea tu cuenta y accede a precios de mayoreo, descuentos por volumen y entregas programadas.</p>
+        </div>
+      </div>
+
+      <div class="tiers">
+        <article class="tier">
+          <h3>Cliente detal</h3>
+          <p class="tier__price">Precio de vitrina</p>
+          <ul>
+            <li>Compra desde 1 unidad</li>
+            <li>Entrega a domicilio en el GAM</li>
+            <li>Envío gratis desde ₡25.000</li>
+            <li>Pedidos especiales y queques únicos</li>
+          </ul>
+          <button class="btn btn--ghost btn--block" data-action="abrir-registro">Crear cuenta</button>
+        </article>
+
+        <article class="tier tier--destacado">
+          <span class="tier__tag">Más popular</span>
+          <h3>Panadería socia</h3>
+          <p class="tier__price">Precio mayorista <strong>−5%</strong></p>
+          <ul>
+            <li>Precios de mayoreo en todo el catálogo</li>
+            <li>Pedido mínimo ₡40.000</li>
+            <li>Envío gratis y horarios fijos</li>
+            <li>Facturación electrónica</li>
+            <li>Asesor de cuenta</li>
+          </ul>
+          <button class="btn btn--primary btn--block" data-action="abrir-registro">Solicitar cuenta</button>
+        </article>
+
+        <article class="tier">
+          <h3>Distribuidor</h3>
+          <p class="tier__price">Precio mayorista <strong>−10%</strong></p>
+          <ul>
+            <li>Mejor precio del catálogo</li>
+            <li>Pedido mínimo ₡100.000</li>
+            <li>Entregas en ruta programada</li>
+            <li>Crédito a 15 días (sujeto a estudio)</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <button class="btn btn--ghost btn--block" data-action="abrir-registro">Solicitar cuenta</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pedidos especiales ===== -->
+  <section class="section" id="especiales">
+    <div class="container especiales">
+      <div class="especiales__copy">
+        <span class="eyebrow">Pedidos especiales</span>
+        <h2>Queques únicos y mesas dulces a tu medida</h2>
+        <p>Diseñamos el queque de tu boda, cumpleaños o evento corporativo: sabores personalizados, decoración comestible, opciones sin gluten y sin azúcar añadida.</p>
+        <ul class="lista-check">
+          <li>Diseño exclusivo, una sola vez horneado para tu evento</li>
+          <li>Degustación previa para pedidos mayores a 50 porciones</li>
+          <li>Entrega refrigerada y montaje en el lugar</li>
+          <li>Cotización en menos de 24 horas hábiles</li>
+        </ul>
+        <div class="aviso">
+          <strong>¿Pedido urgente?</strong> Escríbenos al <a href="https://wa.me/50688887777" target="_blank" rel="noopener">WhatsApp 8888-7777</a> y lo revisamos el mismo día.
+        </div>
+      </div>
+
+      <form class="form card-form" id="formEspecial" novalidate>
+        <h3>Solicitar cotización</h3>
+        <div class="grid-2">
+          <label>Nombre completo<input name="nombre" required placeholder="Tu nombre" /></label>
+          <label>Teléfono / WhatsApp<input name="telefono" required placeholder="8888-8888" /></label>
+          <label>Correo electrónico<input type="email" name="email" required placeholder="tu@correo.com" /></label>
+          <label>Tipo de pedido
+            <select name="tipo">
+              <option>Queque único</option>
+              <option>Mesa dulce</option>
+              <option>Postres para evento</option>
+              <option>Pedido corporativo</option>
+            </select>
+          </label>
+          <label>Porciones / personas<input type="number" name="porciones" min="1" value="20" required /></label>
+          <label>Fecha del evento<input type="date" name="fecha" required /></label>
+        </div>
+        <label>Sabores o restricciones<input name="sabores" placeholder="Ej.: chocolate belga, sin gluten, sin azúcar" /></label>
+        <label>Cuéntanos tu idea<textarea name="detalle" rows="3" required placeholder="Colores, temática, referencias…"></textarea></label>
+        <label>Presupuesto aproximado
+          <select name="presupuesto">
+            <option>Menos de ₡25.000</option>
+            <option>₡25.000 – ₡50.000</option>
+            <option>₡50.000 – ₡100.000</option>
+            <option>Más de ₡100.000</option>
+          </select>
+        </label>
+        <button class="btn btn--primary btn--block" type="submit">Enviar solicitud</button>
+        <p class="mini muted">Respondemos en menos de 24 horas hábiles. No se cobra nada por cotizar.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Entregas ===== -->
+  <section class="section section--alt" id="entregas">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">Servicios de entrega</span>
+          <h2>Llegamos a tu negocio y a tu casa</h2>
+          <p class="muted">Elige la zona al finalizar la compra; el costo se calcula automáticamente.</p>
+        </div>
+      </div>
+      <div class="zonas" id="listaZonas"></div>
+
+      <div class="entrega-info">
+        <div class="entrega-info__item">
+          <h4>🕓 Horarios</h4>
+          <p>Lunes a sábado de 6:00 a 18:00. Domingos solo retiro en tienda de 7:00 a 12:00.</p>
+        </div>
+        <div class="entrega-info__item">
+          <h4>❄️ Cadena de frío</h4>
+          <p>Transportamos en cajas térmicas para que la repostería llegue en perfecto estado.</p>
+        </div>
+        <div class="entrega-info__item">
+          <h4>🏪 Retiro en tienda</h4>
+          <p>San José centro, 150 m norte del Parque Morazán. Listo en 2 horas sin costo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contacto ===== -->
+  <section class="section" id="contacto">
+    <div class="container contacto">
+      <div>
+        <span class="eyebrow">Contacto</span>
+        <h2>Hablemos de tu próximo pedido</h2>
+        <p class="muted">Atendemos panaderías, distribuidores, restaurantes y clientes finales en todo el país.</p>
+        <ul class="contacto__lista">
+          <li><strong>Teléfono / WhatsApp</strong><a href="tel:+50688887777">8888-7777</a></li>
+          <li><strong>Correo</strong><a href="mailto:pedidos@dulcetrigo.cr">pedidos@dulcetrigo.cr</a></li>
+          <li><strong>Dirección</strong><span>San José centro, 150 m norte del Parque Morazán</span></li>
+          <li><strong>Horario</strong><span>Lun–Sáb 6:00–18:00 · Dom 7:00–12:00</span></li>
+        </ul>
+      </div>
+      <div class="contacto__card">
+        <h3>¿Eres panadería o distribuidor?</h3>
+        <p>Recibe la lista de precios mayoristas y el calendario de entregas de tu zona.</p>
+        <button class="btn btn--primary btn--block" data-action="abrir-registro">Solicitar cuenta mayorista</button>
+        <a class="btn btn--ghost btn--block" href="https://wa.me/50688887777" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== Pie ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <a href="#inicio" class="brand brand--light">
+        <span class="brand__mark">DT</span>
+        <span class="brand__text"><strong>Dulce Trigo</strong><small>Repostería artesanal</small></span>
+      </a>
+      <p class="mini">Repostería y panadería artesanal al por mayor. Hecho en Costa Rica con ingredientes locales.</p>
+    </div>
+    <div>
+      <h5>Tienda</h5>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#mayoreo">Precios de mayoreo</a>
+      <a href="#especiales">Pedidos especiales</a>
+      <a href="#entregas">Zonas de entrega</a>
+    </div>
+    <div>
+      <h5>Cuenta</h5>
+      <a href="#" data-action="abrir-cuenta">Ingresar</a>
+      <a href="#" data-action="abrir-registro">Crear cuenta</a>
+      <a href="#" data-action="abrir-carrito">Mi carrito</a>
+      <a href="#" data-action="abrir-admin">Panel administrativo</a>
+    </div>
+    <div>
+      <h5>Contacto</h5>
+      <a href="tel:+50688887777">8888-7777</a>
+      <a href="mailto:pedidos@dulcetrigo.cr">pedidos@dulcetrigo.cr</a>
+      <span class="mini">San José, Costa Rica</span>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© <span id="anio"></span> Dulce Trigo. Sitio de demostración: los pagos no se procesan realmente.</span>
+    <span>Hecho con HTML, CSS y JavaScript</span>
+  </div>
+</footer>
+
+<!-- ===== Overlay ===== -->
+<div class="overlay" id="overlay" data-action="cerrar-todo"></div>
+
+<!-- ===== Carrito lateral ===== -->
+<aside class="drawer" id="drawerCarrito" aria-hidden="true" aria-label="Carrito de compras">
+  <div class="drawer__head">
+    <h3>Tu carrito</h3>
+    <button class="icon-btn" data-action="cerrar-carrito" aria-label="Cerrar carrito">✕</button>
+  </div>
+  <div class="drawer__body" id="cartItems"></div>
+  <div class="drawer__foot" id="cartFoot"></div>
+</aside>
+
+<!-- ===== Modal cuenta ===== -->
+<div class="modal" id="modalCuenta" aria-hidden="true">
+  <div class="modal__panel">
+    <button class="icon-btn modal__close" data-action="cerrar-cuenta" aria-label="Cerrar">✕</button>
+    <div id="cuentaBody"></div>
+  </div>
+</div>
+
+<!-- ===== Modal checkout ===== -->
+<div class="modal" id="modalCheckout" aria-hidden="true">
+  <div class="modal__panel modal__panel--wide">
+    <button class="icon-btn modal__close" data-action="cerrar-checkout" aria-label="Cerrar">✕</button>
+    <div id="checkoutBody"></div>
+  </div>
+</div>
+
+<!-- ===== Modal admin ===== -->
+<div class="modal" id="modalAdmin" aria-hidden="true">
+  <div class="modal__panel modal__panel--wide">
+    <button class="icon-btn modal__close" data-action="cerrar-admin" aria-label="Cerrar">✕</button>
+    <div id="adminBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
